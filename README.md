@@ -24,15 +24,9 @@ Objectives:
 Overview
 
 AES (Advanced Encryption Standard) is a symmetric block cipher standardized by NIST.
-
-It encrypts
-
-128-bit plaintext
-using a 128-bit secret key
-producing a 128-bit ciphertext.
+It encrypts 128-bit plaintext using a 128-bit secret key in turn producing a 128-bit ciphertext.
 
 AES consists of 10 rounds.
-
 Each round performs
 
 SubBytes
@@ -41,3 +35,23 @@ MixColumns
 AddRoundKey
 
 The final round excludes MixColumns.
+
+WORKING:
+Key Expansion
+Generates 11 round keys from the original 128-bit key.
+
+AddRoundKey
+Performs XOR between the current state and the round key.
+state = state XOR roundKey
+
+SubBytes
+Each byte is replaced using the AES S-box.
+Provides confusion.
+
+ShiftRows
+Rows are cyclically shifted left.
+Provides diffusion.
+
+MixColumns
+Each column is multiplied in the finite field GF(2⁸).
+
